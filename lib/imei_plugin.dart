@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/services.dart';
 
 class ImeiPlugin {
@@ -14,10 +13,10 @@ class ImeiPlugin {
   }
 
   // get multi imei numbers (dual-sim, tri-sim) @return List<String>
-  static Future<List<String>> getImeiMulti({
+  static Future<List<String>?> getImeiMulti({
     bool shouldShowRequestPermissionRationale = false
   }) async {
-    final List<String> imeis = await _channel.invokeListMethod('getImeiMulti', { "ssrpr": shouldShowRequestPermissionRationale });
+    final List<String>? imeis = await _channel.invokeListMethod('getImeiMulti', { "ssrpr": shouldShowRequestPermissionRationale });
     return imeis;
   }
 
